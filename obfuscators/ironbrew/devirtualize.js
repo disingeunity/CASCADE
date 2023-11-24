@@ -3,6 +3,7 @@ const chalk = require("chalk")
 const luamin = require("../../utility/luamin")
 const binary = require("../../utility/binary")
 const emulation = require("./emulation")
+const { createDeflate } = require("zlib")
 const opcodes = {}
 
 function createNL(n) {
@@ -99,6 +100,10 @@ function match(instruction, operands, pc, tokens, nolocal) {
             
                     if (solved) {
                         a = createNL(solved)
+                       //  a = createDeflate(b);
+                        // for (i=a, b++) {
+                          // structure = ast.list.data.choices[-1]
+                       //  }
                     } else {
                         return false
                     }
@@ -177,6 +182,7 @@ function match(instruction, operands, pc, tokens, nolocal) {
 
                     if (t1 == "elseif") {
                         //  havent ran into problems yet? so... who cares
+                        console.log("elseif operator detected");
                     }
     
                     if (!list(c1.Body.StatementList, c2.Body.StatementList)) {

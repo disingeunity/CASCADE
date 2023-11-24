@@ -251,11 +251,11 @@ function match(instruction, operands, pc, tokens, nolocal) {
                        .replace(/Env/g, tokens.Env)
 
         ast = luamin.Parse(srcstr)
+       // console.log(luamin.Parse("a[1]=2").StatementList[0].Lhs[0].Base)
+       // console.log("Returned output to stdout (???)")
 
 
-        /*console.log(luamin.Parse("a[1] = 2").StatementList[0].Lhs[0].Base)
-
-        throw "lol"*/
+       // throw "lol"*/
 
         // only just found out about these :pensive:
         let visitor = {}
@@ -357,14 +357,13 @@ function match(instruction, operands, pc, tokens, nolocal) {
 
         luamin.Visit({Type:"StatList", StatementList: instruction, SemicolonList: []}, visitor) // working slow bodge!!!
         
-        /*if (srcstr.includes("if(")) {
-            console.log("assd")
-        }*/
-        /*console.log("------------------")
-        console.log(luamin.Print({Type:"StatList", StatementList: instruction, SemicolonList: []}))
-        console.log(luamin.Print(ast))
-        console.log("------------------")*/
 
+        //console.log("Verbose Logger Enabled")
+        //console.log("------------------------")
+        //console.log(luamin.Print({Type: "StatList", StatementList: instruction, SemicolonList: []}));
+        //console.log(luamin.Print(ast));
+        //console.log("------------------------")
+//
         return list(instruction, ast.StatementList)
     }
 
@@ -623,6 +622,7 @@ module.exports = function(vmdata, debug) {
     let encrypt_constants = false
     let decrypt_const_name 
 
+    
     /*for (let i = 0; i < devirtualized.Instructions.length; i++) {
         let instruction = devirtualized.Instructions[i]
         let instruction_name = binary.OpCodes[instruction.OpCode]

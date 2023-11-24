@@ -509,6 +509,7 @@ function name_var(_var, name) {
     })
 }*/
 
+
 module.exports = function(body, debug) {
     if (debug) console.log("")
 
@@ -518,7 +519,7 @@ module.exports = function(body, debug) {
     if (!body) throw "NoBody"
 
     body = body.Expression.Base.Expression.Body.StatementList
-    if (!body || body.length != 2) throw "Is This Even MoonSec? Or Body Is Like Not Right Idk Man SpeedRunning!!!"
+    if (!body || body.length != 2) throw "are you sure this is using moonsec my nigga"
 
     let _msec_func = body[0].Rhs[0].Expression || body[0].Rhs[0]
     let _msec_args = _msec_func.ArgList
@@ -711,6 +712,8 @@ module.exports = function(body, debug) {
 
         v.Source = n
     }*/
+
+
 
     if (debug) console.log(`[${chalk.yellow("DEBUG")}] ---------------------------`)
 

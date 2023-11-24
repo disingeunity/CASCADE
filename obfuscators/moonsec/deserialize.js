@@ -151,6 +151,7 @@ module.exports = function(vmdata, debug) {
                 case "Parameters":
                     parameters = reader.gBits8()
                     // console.log("Parameters", parameters)
+                    
 
                     continue
                 case "Prototypes":
@@ -244,7 +245,9 @@ module.exports = function(vmdata, debug) {
 
                             if (gBit(L_116_, 1, 1) == 1) {
 						        //L_117_.KstA = constants[L_117_.A]
+                                L_177_.KstA = constant[L_77_.A]
                                 //console.log(`${L_117_.A} -> ${constants[L_117_.A - 1]}`)
+                                console.log(`${L_117_.A} - > ${constants[L_117_.A - 1 ]}`)
                             }
                             if (gBit(L_116_, 2, 2) == 1) {
                                 //L_117_.KstB = constants[L_117_.B]
@@ -280,8 +283,6 @@ module.exports = function(vmdata, debug) {
 
     vmdata.Chunk = deserialize()
 
-    //console.log(vmdata.Chunk)
-    //console.log(JSON.stringify(vmdata.Chunk, null, 4))
     
     return vmdata
 }
